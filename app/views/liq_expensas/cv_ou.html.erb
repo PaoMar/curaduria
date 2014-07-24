@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Curaduria de Soledad N.1</title>
+    <%= stylesheet_link_tag "cf_ur", media: "all", "data-turbolinks-track" => true %>  
+    <%= javascript_include_tag "cv_ou.js" %>  
+</head>
+<body>
+<header>
+<div class="wrapper">
+  <h1>Curaduria Urbana de Soledad N.1</h1>
+  <h1>Formulario Único Liquidación de Expensas</h1>  
+  <p>Decreto 1469/2010</p>
+  </div>  
+</header>
+<div class="wrapper">
+  <div id="datos_personales">
+    <p class = "datos_p">Tipo de Licencia:</p><input class = "datos_p" type="text">
+<p class = "datos_p">Nombre del solicitante:</p><input class = "datos_p" type="text">
+<p class = "datos_p">Dirección de la obra:</p><input class = "datos_p" type="text">
+<p class = "datos_p">Fecha:</p><input class = "datos_p" type="text">
+  </div>
+  <img src="<%= asset_path("logo.png") %>" width: 140px>
+
+<br>
+  <p class="formula" >Formula: E=(Cf * i * m)</p>
+  <p class = "formula">E= Cargo Fijo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i = Estrato&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m = Factor Municipal
+</p>
+<p id="box"> <strong>CARGO VARIABLE  </strong>  (La cancelación de este valor se realiza al momento en que el solicitante es informado que su solicitud es viable, de acuerdo al área de intervención (Urbanismo y/o Construcción) descrito en la solicitud de Licencia)
+
+</p>
+<p id="e_c">Categoria</p>
+<table>
+ <tr>
+   <td><h2>1- CONSTRUCCION</h2></td>
+   <td>M2 Urbaniz./Const.</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+ </tr>
+
+ <tr>
+   <td><p>AREA DE AFECTACION INDIVIDUAL</p></td>
+   <td><input id='m2const' min=0></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+ </tr>
+    
+
+ <tr>
+   <td></td>
+   <td></td>
+   <td>Indice</td>
+   <td>Factor Reg</td>
+   <td>Factor M/pal</td>
+   <td>Valor</td>
+ </tr>
+
+ <tr>
+  <td><p>COSTO COMPONENTE CV (Cargo Variable)</p></td>
+   <td><p id ="tarifa_plena" class="valor" title ="<%=@data.find(4).valor%>"><%=number_to_currency(@data.find(4).valor)%></p></td>
+   <td><p class="valor indice">&nbsp;</p></td>
+   <td><p id="fact_reg" class="valor">&nbsp;</p></td>
+   <td><p id="fact_mpal" class="valor"><%= @data.find(6).valor%></p></td>
+   <td><p class="valor costo_componente">&nbsp;</p></td>
+ </tr>
+
+ <tr>
+   <td><p>VALOR PARCIAL Expensas</p></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td><p class="valor costo_componente">&nbsp;</p></td>
+ </tr>
+<tr>
+   <td><h2>2- URBANISMO y/o PARCELACION</h2></td>
+   <td>M2 Urbaniz./Const.</td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+ </tr>
+
+ <tr>
+   <td><p>AREA DE AFECTACION INDIVIDUAL</p></td>
+   <td><input id='m2const2' ></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+ </tr>
+    
+
+ <tr>
+   <td></td>
+   <td></td>
+   <td>Indice</td>
+   <td>Factor Reg</td>
+   <td>Factor M/pal</td>
+   <td>Valor</td>
+ </tr>
+
+ <tr>
+  <td><p>COSTO COMPONENTE CV (Cargo Variable)</p></td>
+   <td><p class="valor" ><%=number_to_currency(@data.find(4).valor)%></p></td>
+   <td><p id="indice" class="valor indice">&nbsp;</p></td>
+   <td><p id="fact_reg2" class="valor">&nbsp;</p></td>
+   <td><p id="fact_mpal" class="valor"><%= @data.find(6).valor%></p></td>
+   <td><p class="valor costo_componente2">&nbsp;</p></td>
+ </tr>
+
+ <tr>
+   <td><p>VALOR PARCIAL Expensas</p></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td><p class="valor costo_componente2">&nbsp;</p></td>
+ </tr>
+
+
+ <tr>
+   <td><p>PUBLICACIÓN</p></td>
+   <td><p id="valor_publicacion" title="<%=@data.find(2).valor*2%>" class="valor"><%= number_to_currency(@data.find(2).valor*2)%></p></td>
+   <td><input id ='n_publicaciones' type="number" min=0 value=0></td>
+   <td></td>
+   <td></td>
+   <td><p id="valor_total_publicaciones" class="valor">&nbsp;</p></td>
+ </tr>
+ 
+ <tr>
+   <td><p>SUBTOTAL</p></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td><p id="subtotal" class="valor">&nbsp;</p></td>
+ </tr>
+
+ <tr>
+   <td><p>I.V.A</p></td>
+   <td><p><strong>16%</strong></p></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td><p id="iva" class="valor">&nbsp;</p></td>
+ </tr>
+ 
+ <tr>
+   <td><p>VALOR TOTAL Cargo Variable</p></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td><p id="total" class="valor">&nbsp;</p></td>
+ </tr>
+ <tr>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td><button class="boton" onclick="myFunction()">Calcular</button></td>
+ </tr>
+</table>
+<br>
+</div>
+
+</body>
+</html>

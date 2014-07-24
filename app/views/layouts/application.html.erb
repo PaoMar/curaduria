@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>  
+    <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title><%= content_for?(:yield) ? yield(:title) : "Curaduria" %></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- HTML5 Shiv + detect touch events -->
+  <%= javascript_include_tag "modernizr.custom.js" %>
+
+  <!-- HTML5 video player -->
+  <%= javascript_include_tag "video.min.js" %>
+
+</head>
+<body>
+  <header id="header" class="container clearfix">
+    <a href='<%= root_path %>' id="logo">
+      <img src="<%= asset_path("logo.png") %>" width: 140px alt="SmartStart">
+    </a>
+  <nav id="main-nav">
+    <ul>
+      <li class="current">
+        <a href='<%= root_path %>' >Inicio</a>
+      </li>
+      <li>
+        <a href='<%= servicios_path %>'>Servicios</a>
+      </li>
+      <li>
+        <a href= '<%= normatividad_path %>' >Normatividad</a>
+      </li>
+      <li>
+        <a href="#">Quienes Somos</a>
+        <ul>
+          <li><a href='<%= misionv_path %>'>Misión y Visión</a></li>
+          <li><a href='<%= nuestrasede_path %>'>Nuestra Sede</a></li>
+          <li><a href="#">El Curador Urbano</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href='<%= contacto_path %>'>Peticiones</a>
+      </li>
+    </ul>
+  </nav><!-- end #main-nav -->
+</header><!-- end #header -->
+<%= yield %>
+
+<footer id="footer" class="clearfix">
+  <div class="container">
+    <div class="three-fourth">
+      <nav id="footer-nav" class="clearfix">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="elements.html">Servicios</a></li>
+          <li><a href="blog.html">Normatividad</a></li>
+          <li><a href="portfolio-4-columns.html">Quienes Somos</a></li>
+          <li><a href='<% contacto_path %>'>Peticiones</a></li>
+        </ul>
+      </nav><!-- end #footer-nav -->
+      <ul class="contact-info">
+        <li class="address">Soledad Cra 19 No. 12-45</li>
+        <li class="phone">3000000</li>
+        <li class="email"><a href="mailto:contact@companyname.com">curaduriaN1soledad@gmail.com</a></li>
+      </ul><!-- end .contact-info -->
+    </div><!-- end .three-fourth -->
+    <div class="one-fourth last">
+
+      <span class="title">Stay connected</span>
+
+      <ul class="social-links">
+        <li class="twitter"><a href="#">Twitter</a></li>
+        <li class="facebook"><a href="#">Facebook</a></li>
+        <li class="youtube"><a href="#">YouTube</a></li>
+        <li class="skype"><a href="#">Skype</a></li>
+      </ul><!-- end .social-links -->
+
+    </div><!-- end .one-fourth.last -->
+    
+  </div><!-- end .container -->
+
+</footer><!-- end #footer -->
+
+<footer id="footer-bottom" class="clearfix">
+
+  <div class="container">
+
+    <ul>
+      <li>SmartStart &copy; 2012</li>
+      <li><a href="#">Legal Notice</a></li>
+      <li><a href="#">Terms</a></li>
+    </ul>
+
+  </div><!-- end .container -->
+
+</footer><!-- end #footer-bottom -->
+
+
+<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "jquery.ui.widget.min.js" %>
+<%= javascript_include_tag "respond.min.js" %>
+  <%= javascript_include_tag "jquery.easing-1.3.min.js"%>
+ <% javascript_include_tag "jquery.fancybox.pack.js" %>
+  <%= javascript_include_tag "jquery.smartStartSlider.min.js"%>
+  <%= javascript_include_tag "jquery.jcarousel.min.js" %>
+  <%= javascript_include_tag "jquery.cycle.all.min.js" %>
+  <% javascript_include_tag "jquery.isotope.min.js" %>
+  <% javascript_include_tag "audioplayerv1.min.js" %>
+  <%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false" %>
+ <%= javascript_include_tag "jquery.gmap.min.js" %>
+ <%= javascript_include_tag "jquery.touchSwipe.min.js" %>
+  <%= javascript_include_tag "jquery.colorbox-min.js" %>
+  <%= javascript_include_tag "custom.js" %>
+  <%= yield :javascripts %>
+</body>
+</html>
